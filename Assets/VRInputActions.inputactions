@@ -1,0 +1,94 @@
+{
+    "name": "VRInputActions",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "21f4f372-1dbb-4ae7-a83d-d808c9e0e97b",
+            "actions": [
+                {
+                    "name": "Primary",
+                    "type": "Button",
+                    "id": "d8668b8a-de52-4a22-bc51-b206a4e59492",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Joystick",
+                    "type": "Value",
+                    "id": "2732e1ac-2e67-4e61-84ba-c61e8963e633",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightTrigger",
+                    "type": "Value",
+                    "id": "86e67cea-c7de-4716-a95e-b73dd0fddbcd",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftTrigger",
+                    "type": "Value",
+                    "id": "8e39317f-231e-48c3-b2eb-17a85dc18c48",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "40d2633b-90b1-4956-9576-49779507518d",
+                    "path": "<OculusTouchController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Primary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1088669-4e7d-4ac5-8119-882a8e68e671",
+                    "path": "<OculusTouchController>/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d621cadb-e664-4468-b56e-f32d95649ef3",
+                    "path": "<XRController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c4b44ac-24b4-4ea7-b3f4-1bf52cfc4241",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
