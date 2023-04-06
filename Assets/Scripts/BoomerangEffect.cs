@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BoomerangEffect : MonoBehaviour
 {
@@ -22,7 +21,8 @@ public class BoomerangEffect : MonoBehaviour
         // check if the player has pressed the "Space" key and the boomerang hasn't been thrown yet.
         // -----Player can throw the weapon-----
         // get weapon's rotation and target position.
-        if (Input.GetKeyDown(KeyCode.Space) && !isThrown)
+        //if (Input.GetKeyDown(KeyCode.Space) && !isThrown)
+       if (Keyboard.current.spaceKey.wasPressedThisFrame && !isThrown)
         {
             isThrown = true;
             throwDirection = transform.parent.forward;
