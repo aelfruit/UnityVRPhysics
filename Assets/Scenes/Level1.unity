@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 535252827}
   m_Layer: 0
   m_Name: RandomObject (1)
-  m_TagString: Untagged
+  m_TagString: MonsterBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535252822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.004, y: 0.96, z: 2.706}
+  m_LocalPosition: {x: 0.06700003, y: 0.96, z: 2.706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -387,6 +387,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &625719984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3853204903361997903, guid: 39aef487c32ec5c4080f282256e7c8c4, type: 3}
+  m_PrefabInstance: {fileID: 927091184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &818915912
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +650,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2433804144280654906, guid: 39aef487c32ec5c4080f282256e7c8c4, type: 3}
   m_PrefabInstance: {fileID: 927091184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1148010628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2433804144280654909, guid: 39aef487c32ec5c4080f282256e7c8c4, type: 3}
+  m_PrefabInstance: {fileID: 927091184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1148010629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148010628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e22fa541422441439ff8187c4d5d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabOrigin: {fileID: 625719984}
+  grabRadius: 0.1
+  triggerPressed: 0
 --- !u!1 &1367773857
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +761,11 @@ Transform:
   m_Father: {fileID: 454670704}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1473001751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3853204903361997903, guid: d75f417c66085664aa93af06aca3320f, type: 3}
+  m_PrefabInstance: {fileID: 2433804143767379526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1556699889
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,9 +779,10 @@ GameObject:
   - component: {fileID: 1556699891}
   - component: {fileID: 1556699890}
   - component: {fileID: 1556699894}
+  - component: {fileID: 1556699896}
   m_Layer: 0
   m_Name: RandomObject
-  m_TagString: Untagged
+  m_TagString: MonsterBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556699889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.387, y: 1.15, z: 2.706}
+  m_LocalPosition: {x: -1.55, y: 1.15, z: 2.706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,6 +878,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightMaterial: {fileID: 2100000, guid: 1dff75653a2585f409a824f57419bbff, type: 2}
+--- !u!54 &1556699896
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556699889}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &1746710426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2433804144280654909, guid: d75f417c66085664aa93af06aca3320f, type: 3}
+  m_PrefabInstance: {fileID: 2433804143767379526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1746710427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746710426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e22fa541422441439ff8187c4d5d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabOrigin: {fileID: 1473001751}
+  grabRadius: 0.1
+  triggerPressed: 0
 --- !u!1 &1795416163
 GameObject:
   m_ObjectHideFlags: 0
