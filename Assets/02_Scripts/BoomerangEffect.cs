@@ -52,7 +52,8 @@ public class BoomerangEffect : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, returnSpeed * Time.deltaTime); // move the boomerang towards player's hand
                 if (transform.position == targetPosition)
                 {
-                    transform.rotation = throwRotation;
+                    transform.position = transform.parent.position;
+                    transform.rotation = transform.parent.rotation;
                     isThrown = false;
                     isReturning = false;
                 }
