@@ -18,7 +18,7 @@ public class pockey_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Cube")
+        if(other.name == "Cube" || other.CompareTag("Weapon"))
         {
             Destroy(gameObject);
            

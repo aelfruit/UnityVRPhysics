@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class BoomerangEffect : MonoBehaviour
 {
-    public float throwSpeed = 70f; // speed of the boomerang
-    public float rotateSpeed = 800f; // speed at which the boomerang rotates
-    public float returnSpeed = 20f; // speed at which the boomerang returns to the player's hand
-    public float travelDistance = 50f; // distance of the boomerang should travel before returning
+    public float throwSpeed = 20f; // speed of the boomerang
+    public float rotateSpeed = 200f; // speed at which the boomerang rotates
+    public float returnSpeed = 5f; // speed at which the boomerang returns to the player's hand
+    public float travelDistance = 10f; // distance of the boomerang should travel before returning
     private bool isThrown = false; // flag to track whether the boomerang has been thrown
     private bool isReturning = false; // flag to track whether the boomerang is returning
     private Vector3 throwDirection; // direction in which the boomerang was thrown
