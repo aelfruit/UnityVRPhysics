@@ -49,7 +49,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""RightTrigger"",
                     ""type"": ""Value"",
                     ""id"": ""86e67cea-c7de-4716-a95e-b73dd0fddbcd"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -58,28 +58,37 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""name"": ""LeftTrigger"",
                     ""type"": ""Value"",
                     ""id"": ""8e39317f-231e-48c3-b2eb-17a85dc18c48"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""RightGrip"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b8a39c3e-9d6a-4986-97b4-c68d6cbf4839"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""PrimaryButton"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""29b484be-707c-49b7-b9ac-40e4b26515f0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SecondaryButton"",
+                    ""type"": ""Value"",
+                    ""id"": ""920a58e0-009d-4cc9-b06b-af6b36a915d5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -130,7 +139,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""249a4678-d7a5-4270-8160-11e9671bbe35"",
-                    ""path"": """",
+                    ""path"": ""<XRController>{RightHand}/gripPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -159,6 +168,28 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""PrimaryButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c1b231f-40cd-4710-8906-f9199b4687c4"",
+                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""323e3060-b7f5-4769-ba6a-96343ac6f557"",
+                    ""path"": ""<XRController>{LeftHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +204,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_Default_LeftTrigger = m_Default.FindAction("LeftTrigger", throwIfNotFound: true);
         m_Default_RightGrip = m_Default.FindAction("RightGrip", throwIfNotFound: true);
         m_Default_PrimaryButton = m_Default.FindAction("PrimaryButton", throwIfNotFound: true);
+        m_Default_SecondaryButton = m_Default.FindAction("SecondaryButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +270,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_LeftTrigger;
     private readonly InputAction m_Default_RightGrip;
     private readonly InputAction m_Default_PrimaryButton;
+    private readonly InputAction m_Default_SecondaryButton;
     public struct DefaultActions
     {
         private @VRInputActions m_Wrapper;
@@ -248,6 +281,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @LeftTrigger => m_Wrapper.m_Default_LeftTrigger;
         public InputAction @RightGrip => m_Wrapper.m_Default_RightGrip;
         public InputAction @PrimaryButton => m_Wrapper.m_Default_PrimaryButton;
+        public InputAction @SecondaryButton => m_Wrapper.m_Default_SecondaryButton;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -275,6 +309,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @PrimaryButton.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
                 @PrimaryButton.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
                 @PrimaryButton.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
+                @SecondaryButton.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
+                @SecondaryButton.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
+                @SecondaryButton.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -297,6 +334,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @PrimaryButton.started += instance.OnPrimaryButton;
                 @PrimaryButton.performed += instance.OnPrimaryButton;
                 @PrimaryButton.canceled += instance.OnPrimaryButton;
+                @SecondaryButton.started += instance.OnSecondaryButton;
+                @SecondaryButton.performed += instance.OnSecondaryButton;
+                @SecondaryButton.canceled += instance.OnSecondaryButton;
             }
         }
     }
@@ -309,5 +349,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightGrip(InputAction.CallbackContext context);
         void OnPrimaryButton(InputAction.CallbackContext context);
+        void OnSecondaryButton(InputAction.CallbackContext context);
     }
 }
