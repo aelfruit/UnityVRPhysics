@@ -236,6 +236,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd129f656ecb0a543aba3aec71bf1158, type: 3}
+--- !u!1 &171609015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171609017}
+  - component: {fileID: 171609016}
+  m_Layer: 0
+  m_Name: PokeyMonsters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171609016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171609015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a3dbc37d56a4e1282b95cad6576773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 2202364157052816819, guid: efd94066bb36ad0479d29fa0c6295ae2, type: 3}
+  spawnInterval: 5
+  spawnRadius: 10
+  maxEnemies: 6
+--- !u!4 &171609017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171609015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: 0.827564, z: 3.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &454670704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1216813193286939697, guid: dc7b39bc5ef49d94383e456ef71b1d70, type: 3}
@@ -534,7 +582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818915912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.2, z: -1.086}
+  m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -573,8 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 454670704}
   hand: {fileID: 927091185}
-  Teleport: 0
-  TeleportTarget: {x: 0, y: 0, z: 0}
+  teleporting: 0
 --- !u!114 &818915918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +637,9 @@ MonoBehaviour:
   TriggerPressThreshold: 0.8
   Joystick: {x: 0, y: 0}
   RightTrigger: 0
+  RightGrip: 0
+  PrimaryButton: 0
+  SecondaryButton: 0
 --- !u!114 &818915919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,13 +933,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367773857}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41a3dbc37d56a4e1282b95cad6576773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2202364157052816819, guid: efd94066bb36ad0479d29fa0c6295ae2, type: 3}
-  spawnInterval: 2
+  spawnInterval: 5
   spawnRadius: 10
   maxEnemies: 6
 --- !u!4 &1473001751 stripped
@@ -1050,7 +1100,7 @@ MonoBehaviour:
   throwSpeed: 10
   rotateSpeed: 200
   returnSpeed: 5
-  travelDistance: 3
+  travelDistance: 7
 --- !u!65 &1578349609
 BoxCollider:
   m_ObjectHideFlags: 0

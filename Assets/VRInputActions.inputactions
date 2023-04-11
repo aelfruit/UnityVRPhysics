@@ -27,7 +27,7 @@
                     "name": "RightTrigger",
                     "type": "Value",
                     "id": "86e67cea-c7de-4716-a95e-b73dd0fddbcd",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -36,28 +36,37 @@
                     "name": "LeftTrigger",
                     "type": "Value",
                     "id": "8e39317f-231e-48c3-b2eb-17a85dc18c48",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "RightGrip",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "b8a39c3e-9d6a-4986-97b4-c68d6cbf4839",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "PrimaryButton",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "29b484be-707c-49b7-b9ac-40e4b26515f0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SecondaryButton",
+                    "type": "Value",
+                    "id": "920a58e0-009d-4cc9-b06b-af6b36a915d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -108,7 +117,7 @@
                 {
                     "name": "",
                     "id": "249a4678-d7a5-4270-8160-11e9671bbe35",
-                    "path": "",
+                    "path": "<XRController>{RightHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -135,6 +144,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PrimaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c1b231f-40cd-4710-8906-f9199b4687c4",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "323e3060-b7f5-4769-ba6a-96343ac6f557",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -11,6 +11,9 @@ public class VRInputController : MonoBehaviour
     // Publics are usually prefaced with a capital letter.
     public Vector2 Joystick;
     public float RightTrigger;
+    public float RightGrip;
+    public float PrimaryButton;
+    public float SecondaryButton;
     //public float LeftTrigger;
 
     private float previousRightTrigger;
@@ -28,6 +31,9 @@ public class VRInputController : MonoBehaviour
         // Set the *length* of the joystick vector to never exceed 1.
         Joystick = Vector3.ClampMagnitude(Joystick, 1);
         RightTrigger = Mathf.Clamp01(RightTrigger);
+        RightGrip = Mathf.Clamp01(RightGrip);
+        PrimaryButton = Mathf.Clamp01(PrimaryButton);
+        SecondaryButton = Mathf.Clamp01(SecondaryButton);
         //LeftTrigger = Mathf.Clamp01(LeftTrigger);
     }
 
@@ -48,6 +54,9 @@ public class VRInputController : MonoBehaviour
         {
             Joystick = actions.Default.Joystick.ReadValue<Vector2>();
             RightTrigger = actions.Default.RightTrigger.ReadValue<float>();
+            RightGrip = actions.Default.RightGrip.ReadValue<float>();
+            PrimaryButton = actions.Default.PrimaryButton.ReadValue<float>();
+            SecondaryButton = actions.Default.SecondaryButton.ReadValue<float>();
         }
     }
 
