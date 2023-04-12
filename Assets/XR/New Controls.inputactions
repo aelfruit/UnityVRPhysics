@@ -1,0 +1,154 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "71ce674c-3a2b-4ca5-a627-7ed4a8092f01",
+            "actions": [
+                {
+                    "name": "Joystick",
+                    "type": "Button",
+                    "id": "8281af0d-c32c-4e15-a3b4-6795db2255fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftTrigger",
+                    "type": "Button",
+                    "id": "4b3d682b-88ea-4443-a775-df159cd6da24",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Primary",
+                    "type": "Button",
+                    "id": "fb6dea1c-39a4-4aeb-869a-796bc3b635fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PrimaryButton",
+                    "type": "Button",
+                    "id": "bc965f5a-8c64-4ec5-89b6-6b16767b378e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightGrip",
+                    "type": "Button",
+                    "id": "e27c2091-7939-4bfe-b6ad-df09dcd865ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightTrigger",
+                    "type": "Button",
+                    "id": "cfe10f36-b7d3-4e12-a022-49651ed003fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryButton",
+                    "type": "Button",
+                    "id": "5f142aa2-ba78-413e-b14a-ba4e1829e9d1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "91391f83-8a7a-422f-9cfb-17d53b128f6b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "016df780-7b6f-4ae4-821e-393d72d121d1",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c94bc2e-4907-4b31-bc72-bc623bf0b200",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Primary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4fd2d5c-1d45-4072-b186-8f483c80863c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a3d3473-3c09-43a9-afa0-6b7ad0f9ec69",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightGrip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88224152-62e6-43bf-a7ec-93ae3cc40495",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64d5f63c-a700-4788-9bd9-aa32bfc3e3bd",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

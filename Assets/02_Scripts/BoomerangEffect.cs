@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class BoomerangEffect : MonoBehaviour
@@ -11,25 +13,52 @@ public class BoomerangEffect : MonoBehaviour
     private Vector3 throwDirection; // direction in which the boomerang was thrown
     private Quaternion throwRotation; // rotation of the player's arm when the boomerang was thrown
     private Vector3 targetPosition; // position to which the boomerang should travel before returning
+
+    private VRInputController input;
+    private InputAction bButtonAction;
+    private InputAction yButtonAction; // Reference to the Y button input action
+
+    private void Awake()
+    {
+        input = GetComponent<VRInputController>();
+        
+        // Get a reference to the B button input action
+        bButtonAction = new InputAction("B Button", InputActionType.Button, "<XRController>{RightHand}/buttonNorth");
+        // Bind the B button input action to the OnBButtonPressed method when pressed
+        bButtonAction.performed += OnButtonPressed;
+
+        // Get a reference to the Y button input action
+        yButtonAction = new InputAction("Y Button", InputActionType.Button, "<XRController>{LeftHand}/buttonWest");
+        // Bind the Y button input action to the OnYButtonPressed method when pressed
+        yButtonAction.performed += OnButtonPressed;
+    }
+
     // Update is called once per frame
     void Update()
     {
+
         // check if the player has pressed the "Space" key and the boomerang hasn't been thrown yet.
         // -----Player can throw the weapon-----
         // get weapon's rotation and target position.
         //if (Input.GetKeyDown(KeyCode.Space) && !isThrown)
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && !isThrown)
+        if (!isThrown)
         {
-            isThrown = true;
-            throwDirection = transform.parent.forward;
-            throwRotation = transform.parent.rotation;
-            targetPosition = transform.parent.position + throwDirection * travelDistance;
-            Debug.Log(targetPosition);
+            OnEnable();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isThrown = true;
+                throwDirection = transform.parent.forward;
+                throwRotation = transform.parent.rotation;
+                targetPosition = transform.parent.position + throwDirection * travelDistance;
+                Debug.Log(targetPosition);
+            }
         }
+        
         // check if isThrown is true.
         // -----* Weapon starts moving and rotating through the air towards its target position
         if (isThrown)
         {
+            OnDisable();
             transform.Rotate(Vector3.right, rotateSpeed * Time.deltaTime);// rotate the boomerang
             if (!isReturning)
             {
@@ -67,5 +96,30 @@ public class BoomerangEffect : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+    }
+
+    private void OnEnable()
+    {
+        // Enable the B button input action
+        bButtonAction.Enable();
+        // Enable the Y button input action
+        yButtonAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Disable the B button input action
+        bButtonAction.Disable();
+        // Disable the Y button input action
+        yButtonAction.Disable();
+    }
+
+    private void OnButtonPressed(InputAction.CallbackContext context)
+    {
+        isThrown = true;
+        throwDirection = transform.parent.forward;
+        throwRotation = transform.parent.rotation;
+        targetPosition = transform.parent.position + throwDirection * travelDistance;
+        Debug.Log(targetPosition);
     }
 }

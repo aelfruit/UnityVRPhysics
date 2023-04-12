@@ -73,10 +73,19 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""xr_controller_button_b"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3823bd0-72d2-483b-a816-4419862c81e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""PrimaryButton"",
                     ""type"": ""Value"",
-                    ""id"": ""29b484be-707c-49b7-b9ac-40e4b26515f0"",
-                    ""expectedControlType"": ""Button"",
+                    ""id"": ""f7fd37ba-9d97-46a4-a713-b51dc5d86e4c"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -84,8 +93,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""SecondaryButton"",
                     ""type"": ""Value"",
-                    ""id"": ""920a58e0-009d-4cc9-b06b-af6b36a915d5"",
-                    ""expectedControlType"": ""Button"",
+                    ""id"": ""968600d6-2406-49aa-b840-30b2002b897a"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -149,8 +158,19 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""36bc6b34-6d0a-43b4-bee8-07e9d0ef032f"",
-                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""id"": ""d491d862-2649-4826-92df-79a0345dc1e0"",
+                    ""path"": ""<OculusTouchController>/secondaryButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""xr_controller_button_b"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95f7d7b2-1cda-47e1-87d4-2864be013e8f"",
+                    ""path"": ""<OculusTouchController>{RightHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -160,8 +180,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b2cec064-f370-4f88-bb18-c03d41c9f942"",
-                    ""path"": ""<XRController>{LeftHand}/primaryButton"",
+                    ""id"": ""2c85b674-16e4-475a-a1ce-7234b2b3df4c"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -171,8 +191,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5c1b231f-40cd-4710-8906-f9199b4687c4"",
-                    ""path"": ""<XRController>{RightHand}/secondaryButton"",
+                    ""id"": ""4b03935b-2e52-4b8e-ab74-747a197f1756"",
+                    ""path"": ""<OculusTouchController>{RightHand}/secondaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -182,8 +202,8 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""323e3060-b7f5-4769-ba6a-96343ac6f557"",
-                    ""path"": ""<XRController>{LeftHand}/secondaryButton"",
+                    ""id"": ""41c73f8f-e144-477a-8dd9-b29053501922"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/secondaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -203,6 +223,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_Default_RightTrigger = m_Default.FindAction("RightTrigger", throwIfNotFound: true);
         m_Default_LeftTrigger = m_Default.FindAction("LeftTrigger", throwIfNotFound: true);
         m_Default_RightGrip = m_Default.FindAction("RightGrip", throwIfNotFound: true);
+        m_Default_xr_controller_button_b = m_Default.FindAction("xr_controller_button_b", throwIfNotFound: true);
         m_Default_PrimaryButton = m_Default.FindAction("PrimaryButton", throwIfNotFound: true);
         m_Default_SecondaryButton = m_Default.FindAction("SecondaryButton", throwIfNotFound: true);
     }
@@ -269,6 +290,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_RightTrigger;
     private readonly InputAction m_Default_LeftTrigger;
     private readonly InputAction m_Default_RightGrip;
+    private readonly InputAction m_Default_xr_controller_button_b;
     private readonly InputAction m_Default_PrimaryButton;
     private readonly InputAction m_Default_SecondaryButton;
     public struct DefaultActions
@@ -280,6 +302,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @RightTrigger => m_Wrapper.m_Default_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_Default_LeftTrigger;
         public InputAction @RightGrip => m_Wrapper.m_Default_RightGrip;
+        public InputAction @xr_controller_button_b => m_Wrapper.m_Default_xr_controller_button_b;
         public InputAction @PrimaryButton => m_Wrapper.m_Default_PrimaryButton;
         public InputAction @SecondaryButton => m_Wrapper.m_Default_SecondaryButton;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
@@ -306,6 +329,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @RightGrip.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
                 @RightGrip.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
                 @RightGrip.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
+                @xr_controller_button_b.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
+                @xr_controller_button_b.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
+                @xr_controller_button_b.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
                 @PrimaryButton.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
                 @PrimaryButton.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
                 @PrimaryButton.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnPrimaryButton;
@@ -331,6 +357,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @RightGrip.started += instance.OnRightGrip;
                 @RightGrip.performed += instance.OnRightGrip;
                 @RightGrip.canceled += instance.OnRightGrip;
+                @xr_controller_button_b.started += instance.OnXr_controller_button_b;
+                @xr_controller_button_b.performed += instance.OnXr_controller_button_b;
+                @xr_controller_button_b.canceled += instance.OnXr_controller_button_b;
                 @PrimaryButton.started += instance.OnPrimaryButton;
                 @PrimaryButton.performed += instance.OnPrimaryButton;
                 @PrimaryButton.canceled += instance.OnPrimaryButton;
@@ -348,6 +377,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightGrip(InputAction.CallbackContext context);
+        void OnXr_controller_button_b(InputAction.CallbackContext context);
         void OnPrimaryButton(InputAction.CallbackContext context);
         void OnSecondaryButton(InputAction.CallbackContext context);
     }
