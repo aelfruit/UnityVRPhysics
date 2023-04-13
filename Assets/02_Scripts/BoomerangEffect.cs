@@ -8,11 +8,14 @@ public class BoomerangEffect : MonoBehaviour
     public float rotateSpeed = 200f; // speed at which the boomerang rotates
     public float returnSpeed = 5f; // speed at which the boomerang returns to the player's hand
     public float travelDistance = 10f; // distance of the boomerang should travel before returning
+
+    private Transform previousParent;
     private bool isThrown = false; // flag to track whether the boomerang has been thrown
     private bool isReturning = false; // flag to track whether the boomerang is returning
     private Vector3 throwDirection; // direction in which the boomerang was thrown
     private Quaternion throwRotation; // rotation of the player's arm when the boomerang was thrown
     private Vector3 targetPosition; // position to which the boomerang should travel before returning
+
 
     private VRInputActions vrInputActions;
     private InputAction bButtonAction;
@@ -32,34 +35,47 @@ public class BoomerangEffect : MonoBehaviour
         yButtonAction = new InputAction("Y Button", InputActionType.Button, "<XRController>{LeftHand}/buttonWest");
         // Bind the Y button input action to the OnYButtonPressed method when pressed
         yButtonAction.performed += OnButtonPressed;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (vrInputActions.Default.SecondaryButton.WasPerformedThisFrame())
-        {
-            Debug.Log("SeconderyButton Pressed");
-            isThrown = true;
-            throwDirection = transform.parent.forward;
-            throwRotation = transform.parent.rotation;
-            targetPosition = transform.parent.position + throwDirection * travelDistance;
-            Debug.Log(targetPosition);
-        }
+        
         // check if the player has pressed the "Space" key and the boomerang hasn't been thrown yet.
         // -----Player can throw the weapon-----
         // get weapon's rotation and target position.
         //if (Input.GetKeyDown(KeyCode.Space) && !isThrown)
         if (!isThrown)
         {
+            if (transform.parent != null)
+            {
+                previousParent = transform.parent;
+            }
+
             OnEnable();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 isThrown = true;
-                throwDirection = transform.parent.forward;
+                isReturning = false;
+                throwDirection = transform.forward;
                 throwRotation = transform.parent.rotation;
-                targetPosition = transform.parent.position + throwDirection * travelDistance;
-                Debug.Log(targetPosition);
+                targetPosition = transform.position + throwDirection * travelDistance;
+                transform.SetParent(null);
+            }
+
+            if (vrInputActions.Default.SecondaryButton.WasPerformedThisFrame())
+            {
+                isThrown = true;
+                isReturning = false;
+                throwDirection = transform.forward;
+                throwRotation = transform.parent.rotation;
+                targetPosition = transform.position + throwDirection * travelDistance;
+                transform.SetParent(null);
+
+                Debug.Log("SecondaryButton Pressed, weapon isThrown !isReturning");
+                Debug.Log("isThrown targetPosition: " + targetPosition);
             }
         }
         
@@ -72,7 +88,6 @@ public class BoomerangEffect : MonoBehaviour
             
             if (!isReturning)
             {
-
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, throwSpeed * Time.deltaTime); // move the boomerang towards its target
                 //transform.position = Vector3.Lerp(transform.position, targetPosition, throwSpeed * Time.deltaTime); // move the boomerang towards its target
                 // check if the weapon has reached its target
@@ -80,8 +95,11 @@ public class BoomerangEffect : MonoBehaviour
                 if (transform.position == targetPosition)
                 {
                     isReturning = true;
-                    targetPosition = transform.parent.position; // set weapon target position to player's hand
-                    Debug.Log(targetPosition);
+                    targetPosition = previousParent.position; // set weapon target position to player's hand
+
+                    Debug.Log("set !isReturning to true");
+                    Debug.Log("isReturning targetPosition: " + targetPosition);
+                    Debug.Log("isReturning currentPosition: " + transform.position);
                 }
             }
             // if the boomerang has returned to the player's hand, reset its state
@@ -90,6 +108,7 @@ public class BoomerangEffect : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, returnSpeed * Time.deltaTime); // move the boomerang towards player's hand
                 if (transform.position == targetPosition)
                 {
+                    transform.SetParent(previousParent);
                     transform.position = transform.parent.position;
                     transform.rotation = transform.parent.rotation;
                     isThrown = false;
@@ -128,9 +147,13 @@ public class BoomerangEffect : MonoBehaviour
     private void OnButtonPressed(InputAction.CallbackContext context)
     {
         isThrown = true;
-        throwDirection = transform.parent.forward;
+        isReturning = false;
+        throwDirection = transform.forward;
         throwRotation = transform.parent.rotation;
-        targetPosition = transform.parent.position + throwDirection * travelDistance;
+        targetPosition = transform.position + throwDirection * travelDistance;
+        transform.SetParent(null);
+
+        Debug.Log("OnButtonPressed");
         Debug.Log(targetPosition);
     }
 }
