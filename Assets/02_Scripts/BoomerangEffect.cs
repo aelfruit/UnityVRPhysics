@@ -14,13 +14,14 @@ public class BoomerangEffect : MonoBehaviour
     private Quaternion throwRotation; // rotation of the player's arm when the boomerang was thrown
     private Vector3 targetPosition; // position to which the boomerang should travel before returning
 
-    private VRInputController input;
+    private VRInputActions vrInputActions;
     private InputAction bButtonAction;
     private InputAction yButtonAction; // Reference to the Y button input action
 
     private void Awake()
     {
-        input = GetComponent<VRInputController>();
+        vrInputActions = new VRInputActions();
+        vrInputActions.Enable();
         
         // Get a reference to the B button input action
         bButtonAction = new InputAction("B Button", InputActionType.Button, "<XRController>{RightHand}/buttonNorth");
@@ -36,7 +37,15 @@ public class BoomerangEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (vrInputActions.Default.SecondaryButton.WasPerformedThisFrame())
+        {
+            Debug.Log("SeconderyButton Pressed");
+            isThrown = true;
+            throwDirection = transform.parent.forward;
+            throwRotation = transform.parent.rotation;
+            targetPosition = transform.parent.position + throwDirection * travelDistance;
+            Debug.Log(targetPosition);
+        }
         // check if the player has pressed the "Space" key and the boomerang hasn't been thrown yet.
         // -----Player can throw the weapon-----
         // get weapon's rotation and target position.
@@ -60,8 +69,10 @@ public class BoomerangEffect : MonoBehaviour
         {
             OnDisable();
             transform.Rotate(Vector3.right, rotateSpeed * Time.deltaTime);// rotate the boomerang
+            
             if (!isReturning)
             {
+
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, throwSpeed * Time.deltaTime); // move the boomerang towards its target
                 //transform.position = Vector3.Lerp(transform.position, targetPosition, throwSpeed * Time.deltaTime); // move the boomerang towards its target
                 // check if the weapon has reached its target
