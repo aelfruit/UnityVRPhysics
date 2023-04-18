@@ -17,6 +17,9 @@ public class VRRig : MonoBehaviour
             Vector3 leftPosition = XRController.leftHand.devicePosition.ReadValue();
             Quaternion leftRotation = XRController.leftHand.deviceRotation.ReadValue();
 
+            // Rotate leftRotation by 90 degrees around its x-axis
+            leftRotation *= Quaternion.Euler(90f,0f,0f);
+
             left.localPosition = leftPosition;
             left.localRotation = leftRotation;
         }
@@ -25,6 +28,9 @@ public class VRRig : MonoBehaviour
         {
             Vector3 rightPosition = XRController.rightHand.devicePosition.ReadValue();
             Quaternion rightRotation = XRController.rightHand.deviceRotation.ReadValue();
+
+            // Rotate rightRotation by 90 degrees around its x-axis
+            rightRotation *= Quaternion.Euler(90f, 0f, 0f);
 
             right.localPosition = rightPosition;
             right.localRotation = rightRotation;

@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RefinedGrab : MonoBehaviour
 {
@@ -12,10 +15,12 @@ public class RefinedGrab : MonoBehaviour
     private GrabbableObject heldObject;
 
     private VRInputController input;
+    private VRInputActions vrInputActions;
 
     private void Awake()
     {
-        input = GetComponent<VRInputController>();
+        vrInputActions = new VRInputActions();
+        vrInputActions.Enable();
     }
 
     private void Update()
@@ -23,10 +28,16 @@ public class RefinedGrab : MonoBehaviour
         // Are we holding an object?
         if (heldObject != null)
         {
+            if (vrInputActions.Default.PrimaryButton.WasPerformedThisFrame())
+            {
+                triggerPressed = false;
+            }
+
             if (!triggerPressed)
             {
                 heldObject.transform.parent = null;
                 heldObject.GetComponent<Rigidbody>().isKinematic = false;
+                heldObject.GetComponent<Collider>().isTrigger = false;
                 heldObject.GetComponent<Rigidbody>().velocity = velocity;
                 heldObject.GetComponent<Rigidbody>().angularVelocity = angularVelocity;
 
@@ -54,12 +65,20 @@ public class RefinedGrab : MonoBehaviour
                 if (grabbable != null)
                 {
                     // Grab the object if the user wants to (i.e., presses the trigger).
+                    if (vrInputActions.Default.PrimaryButton.WasPerformedThisFrame())
+                    {
+                        triggerPressed = true;
+                    }
+
                     if (triggerPressed)
                     {
                         heldObject = grabbable;
 
+                        //heldObject.transform.SetParent(transform);
+                        //heldObject.transform.position = Vector3.zero;
                         heldObject.transform.parent = transform;
                         heldObject.GetComponent<Rigidbody>().isKinematic = true;
+                        heldObject.GetComponent<Collider>().isTrigger = true;
                     }
                     else
                     {

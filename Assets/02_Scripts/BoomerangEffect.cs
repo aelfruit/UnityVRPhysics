@@ -52,30 +52,31 @@ public class BoomerangEffect : MonoBehaviour
             if (transform.parent != null)
             {
                 previousParent = transform.parent;
-            }
+            
 
-            OnEnable();
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                isThrown = true;
-                isReturning = false;
-                throwDirection = transform.forward;
-                throwRotation = transform.parent.rotation;
-                targetPosition = transform.position + throwDirection * travelDistance;
-                transform.SetParent(null);
-            }
+                OnEnable();
+                if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                {
+                    isThrown = true;
+                    isReturning = false;
+                    throwDirection = transform.forward;
+                    throwRotation = transform.parent.rotation;
+                    targetPosition = transform.position + throwDirection * travelDistance;
+                    transform.SetParent(null);
+               }
 
-            if (vrInputActions.Default.SecondaryButton.WasPerformedThisFrame())
-            {
-                isThrown = true;
-                isReturning = false;
-                throwDirection = transform.forward;
-                throwRotation = transform.parent.rotation;
-                targetPosition = transform.position + throwDirection * travelDistance;
-                transform.SetParent(null);
+                if (vrInputActions.Default.SecondaryButton.WasPerformedThisFrame())
+                {
+                    isThrown = true;
+                    isReturning = false;
+                    throwDirection = transform.forward;
+                    throwRotation = transform.parent.rotation;
+                    targetPosition = transform.position + throwDirection * travelDistance;
+                    transform.SetParent(null);
 
-                Debug.Log("SecondaryButton Pressed, weapon isThrown !isReturning");
-                Debug.Log("isThrown targetPosition: " + targetPosition);
+                    Debug.Log("SecondaryButton Pressed, weapon isThrown !isReturning");
+                    Debug.Log("isThrown targetPosition: " + targetPosition);
+                }
             }
         }
         
