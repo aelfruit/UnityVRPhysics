@@ -32,7 +32,7 @@ public class pockey_spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int i = Random.Range(0, 5);
+        int i = Random.Range(0, 15);
         Vector3 v = new Vector3(i, 0, 0);
 
 
