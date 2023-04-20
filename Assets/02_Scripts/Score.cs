@@ -44,9 +44,10 @@ public class Score : MonoBehaviour
             //score = count - objectsWithTag.Length;
             //score = count - score;            
         }
-        else if (objectsWithTag.Length == count)
+        
+        if (score ==0)
         {
-            scoreText.text = "You hit nothing. FAIL!";
+            scoreText.text = "You hit nothing..(Fail State)";
         }
     }
 
