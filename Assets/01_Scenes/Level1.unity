@@ -396,7 +396,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b810e10931f7be4ead5859ea83749e4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.783
+  m_Volume: 0.39
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -990,7 +990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 454670704}
   hand: {fileID: 140253252}
-  teleporting: 0
+  Teleport: 0
+  TeleportTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &818915918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1493,22 @@ MonoBehaviour:
   grabOrigin: {fileID: 1718182406}
   grabRadius: 0.1
   triggerPressed: 0
+--- !u!114 &1148010630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148010628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb3e3278aa3f0a4da28cf1f9990da8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 454670704}
+  hand: {fileID: 927091185}
+  Teleport: 0
+  TeleportTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &1156361677
 MonoBehaviour:
   m_ObjectHideFlags: 0
