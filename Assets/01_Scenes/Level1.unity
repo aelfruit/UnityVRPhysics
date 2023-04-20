@@ -266,6 +266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRRigZoomOut
       objectReference: {fileID: 0}
+    - target: {fileID: 8713511419676921202, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8713511420152471035, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
       propertyPath: m_ClearFlags
       value: 1
