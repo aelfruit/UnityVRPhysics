@@ -364,6 +364,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8713511418749316275, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8713511419676921201, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -412,8 +416,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRRigZoomOut
       objectReference: {fileID: 0}
+    - target: {fileID: 8713511420152471035, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
+--- !u!1 &174023036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8713511419676921202, guid: 188eff3c2ebbcd648997b07000f8f894, type: 3}
+  m_PrefabInstance: {fileID: 174023035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &245105881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 797754323765996975, guid: 701661a3839eb6f4494ea7766f43343b, type: 3}
@@ -2277,6 +2290,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4622716715248740145, guid: 23d248be515c1034c9affb12a72acf88, type: 3}
+      propertyPath: Camera1
+      value: 
+      objectReference: {fileID: 818915912}
+    - target: {fileID: 4622716715248740145, guid: 23d248be515c1034c9affb12a72acf88, type: 3}
+      propertyPath: Camera2
+      value: 
+      objectReference: {fileID: 174023036}
     - target: {fileID: 4622716715248740146, guid: 23d248be515c1034c9affb12a72acf88, type: 3}
       propertyPath: m_Name
       value: SwitchCamera

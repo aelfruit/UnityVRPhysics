@@ -8,7 +8,7 @@ public class pockey_spawner : MonoBehaviour
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
     public float spawnRadius = 10f;
-    public int maxEnemies = 6;
+    public int maxEnemies = 8;
 
     private float timer;
     private int currentEnemies;
@@ -33,7 +33,7 @@ public class pockey_spawner : MonoBehaviour
     void SpawnEnemy()
     {
         int i = Random.Range(0, 15);
-        Vector3 v = new Vector3(i, 0, 0);
+        Vector3 v = new Vector3(i, 0, 2);
 
 
         Vector3 spawnPosition = Vector3.zero + v;
