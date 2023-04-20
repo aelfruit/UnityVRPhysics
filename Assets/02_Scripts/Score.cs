@@ -8,6 +8,8 @@ public class Score : MonoBehaviour
     private int count;
     private int score;
     public TextMeshProUGUI scoreText;
+    private float timer = 0f;
+    public TextMeshProUGUI succesText;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +23,25 @@ public class Score : MonoBehaviour
         SetScoreText();
     }
 
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        // Wait for 10 seconds before checking for the tag
+        if (timer > 2f)
+        {
+            // Check if there are any objects with the "MonsterBody" tag
+            GameObject[] monsters = GameObject.FindGameObjectsWithTag("MonsterBody");
+            if (monsters.Length == 0)
+            {
+                // If there are no objects with the tag, display the success text
+
+                succesText.text = "Success";
+                //successText.text = "Success";
+                Debug.Log("Success");
+            }
+        }
+    }
     private void FixedUpdate()
     {
         //check objects with tag to subtract and get score from when destroyed
