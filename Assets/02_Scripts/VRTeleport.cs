@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 // from class demo: VR Teleport  notes
 public class VRTeleport : MonoBehaviour
 {

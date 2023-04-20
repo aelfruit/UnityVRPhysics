@@ -98,6 +98,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""26ff9fe1-5cce-4852-b590-519d1647bf32"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -210,6 +219,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dd415cd-d167-4b6c-8193-71c5b67ace2c"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/menu"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -226,6 +246,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_Default_xr_controller_button_b = m_Default.FindAction("xr_controller_button_b", throwIfNotFound: true);
         m_Default_PrimaryButton = m_Default.FindAction("PrimaryButton", throwIfNotFound: true);
         m_Default_SecondaryButton = m_Default.FindAction("SecondaryButton", throwIfNotFound: true);
+        m_Default_Menu = m_Default.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +314,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_xr_controller_button_b;
     private readonly InputAction m_Default_PrimaryButton;
     private readonly InputAction m_Default_SecondaryButton;
+    private readonly InputAction m_Default_Menu;
     public struct DefaultActions
     {
         private @VRInputActions m_Wrapper;
@@ -305,6 +327,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @xr_controller_button_b => m_Wrapper.m_Default_xr_controller_button_b;
         public InputAction @PrimaryButton => m_Wrapper.m_Default_PrimaryButton;
         public InputAction @SecondaryButton => m_Wrapper.m_Default_SecondaryButton;
+        public InputAction @Menu => m_Wrapper.m_Default_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +361,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @SecondaryButton.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
                 @SecondaryButton.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
                 @SecondaryButton.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnSecondaryButton;
+                @Menu.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -366,6 +392,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @SecondaryButton.started += instance.OnSecondaryButton;
                 @SecondaryButton.performed += instance.OnSecondaryButton;
                 @SecondaryButton.canceled += instance.OnSecondaryButton;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -380,5 +409,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnXr_controller_button_b(InputAction.CallbackContext context);
         void OnPrimaryButton(InputAction.CallbackContext context);
         void OnSecondaryButton(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

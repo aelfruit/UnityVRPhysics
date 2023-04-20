@@ -1,21 +1,25 @@
 using UnityEngine;
 
+
 public class SwitchCamera : MonoBehaviour
 {
     public GameObject Camera1;
     public GameObject Camera2;
     public int Manager;
-
-    private VRInputController input;
+    private VRInputActions vrInputActions;
 
     private void Awake()
     {
-        input = GetComponent<VRInputController>();
+        vrInputActions = new VRInputActions();
+        vrInputActions.Enable();
     }
 
     private void Update()
     {
-        //if (input.SecondaryButton.
+        if (vrInputActions.Default.RightTrigger.WasPerformedThisFrame())
+        {
+            ManageCamera();
+        }
     }
 
     public void ManageCamera()
