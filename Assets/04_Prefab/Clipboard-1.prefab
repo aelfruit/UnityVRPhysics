@@ -322,7 +322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '             Instuctions
+  m_text: '             Instructions
 
 
     A/X Button: Grap Weapon
