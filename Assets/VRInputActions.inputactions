@@ -51,6 +51,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "LeftGrip",
+                    "type": "Value",
+                    "id": "8a3c5e0e-c927-463d-84f6-be0045379985",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "xr_controller_button_b",
                     "type": "Button",
                     "id": "f3823bd0-72d2-483b-a816-4419862c81e2",
@@ -206,6 +215,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43a98def-3eec-4442-aa88-785c7f41ab54",
+                    "path": "<OculusTouchController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftGrip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

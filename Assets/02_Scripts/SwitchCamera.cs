@@ -16,7 +16,7 @@ public class SwitchCamera : MonoBehaviour
 
     private void Update()
     {
-        if (vrInputActions.Default.RightTrigger.WasPerformedThisFrame())
+        if (vrInputActions.Default.LeftGrip.WasPerformedThisFrame())
         {
             ManageCamera();
         }

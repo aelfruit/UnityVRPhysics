@@ -15,6 +15,7 @@ public class LoadLevel1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (vrInputActions.Default.RightTrigger.WasPerformedThisFrame())
         {
             SceneManager.LoadScene("Level1");

@@ -73,6 +73,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""LeftGrip"",
+                    ""type"": ""Value"",
+                    ""id"": ""8a3c5e0e-c927-463d-84f6-be0045379985"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""xr_controller_button_b"",
                     ""type"": ""Button"",
                     ""id"": ""f3823bd0-72d2-483b-a816-4419862c81e2"",
@@ -230,6 +239,17 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43a98def-3eec-4442-aa88-785c7f41ab54"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/gripPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftGrip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -243,6 +263,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         m_Default_RightTrigger = m_Default.FindAction("RightTrigger", throwIfNotFound: true);
         m_Default_LeftTrigger = m_Default.FindAction("LeftTrigger", throwIfNotFound: true);
         m_Default_RightGrip = m_Default.FindAction("RightGrip", throwIfNotFound: true);
+        m_Default_LeftGrip = m_Default.FindAction("LeftGrip", throwIfNotFound: true);
         m_Default_xr_controller_button_b = m_Default.FindAction("xr_controller_button_b", throwIfNotFound: true);
         m_Default_PrimaryButton = m_Default.FindAction("PrimaryButton", throwIfNotFound: true);
         m_Default_SecondaryButton = m_Default.FindAction("SecondaryButton", throwIfNotFound: true);
@@ -311,6 +332,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_RightTrigger;
     private readonly InputAction m_Default_LeftTrigger;
     private readonly InputAction m_Default_RightGrip;
+    private readonly InputAction m_Default_LeftGrip;
     private readonly InputAction m_Default_xr_controller_button_b;
     private readonly InputAction m_Default_PrimaryButton;
     private readonly InputAction m_Default_SecondaryButton;
@@ -324,6 +346,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         public InputAction @RightTrigger => m_Wrapper.m_Default_RightTrigger;
         public InputAction @LeftTrigger => m_Wrapper.m_Default_LeftTrigger;
         public InputAction @RightGrip => m_Wrapper.m_Default_RightGrip;
+        public InputAction @LeftGrip => m_Wrapper.m_Default_LeftGrip;
         public InputAction @xr_controller_button_b => m_Wrapper.m_Default_xr_controller_button_b;
         public InputAction @PrimaryButton => m_Wrapper.m_Default_PrimaryButton;
         public InputAction @SecondaryButton => m_Wrapper.m_Default_SecondaryButton;
@@ -352,6 +375,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @RightGrip.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
                 @RightGrip.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
                 @RightGrip.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightGrip;
+                @LeftGrip.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftGrip;
+                @LeftGrip.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftGrip;
+                @LeftGrip.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftGrip;
                 @xr_controller_button_b.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
                 @xr_controller_button_b.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
                 @xr_controller_button_b.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnXr_controller_button_b;
@@ -383,6 +409,9 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 @RightGrip.started += instance.OnRightGrip;
                 @RightGrip.performed += instance.OnRightGrip;
                 @RightGrip.canceled += instance.OnRightGrip;
+                @LeftGrip.started += instance.OnLeftGrip;
+                @LeftGrip.performed += instance.OnLeftGrip;
+                @LeftGrip.canceled += instance.OnLeftGrip;
                 @xr_controller_button_b.started += instance.OnXr_controller_button_b;
                 @xr_controller_button_b.performed += instance.OnXr_controller_button_b;
                 @xr_controller_button_b.canceled += instance.OnXr_controller_button_b;
@@ -406,6 +435,7 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightGrip(InputAction.CallbackContext context);
+        void OnLeftGrip(InputAction.CallbackContext context);
         void OnXr_controller_button_b(InputAction.CallbackContext context);
         void OnPrimaryButton(InputAction.CallbackContext context);
         void OnSecondaryButton(InputAction.CallbackContext context);
